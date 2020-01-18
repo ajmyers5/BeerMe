@@ -1,4 +1,4 @@
-let cityName = $()
+let cityName = $(".city")
 
 // Here we are building the URL we need to query the database
 var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + cityName
