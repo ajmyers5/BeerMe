@@ -1,7 +1,7 @@
-let cityName = $(".city")
+let cityName = $(".cityInput")
 
 // Here we are building the URL we need to query the database
-var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + cityName
+var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + cityName 
 
 // Here we run our AJAX call to the openBrewer API
 $.ajax({
