@@ -59,15 +59,23 @@
       //   });
       // });
 
-      const queryURL =
-        "https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3/menu?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323";
+      // const queryURL =
+      //   "https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3/menu?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323";
+      // $.ajax({
+      //   url: queryURL,
+      //   method: "GET"
+      // }).then(function(response) {
+      //   console.log(response);
+      //   //gets the venue's menu.. this is a premium API call, we only get 50 per day
+      //   //doesn't have drink menu, only food
+      // });
+
       $.ajax({
-        url: queryURL,
+        url:
+          "https://api.tomtom.com/map/1/tile/basic/main/22/500/500.pbf?view=Unified&key=lMpDx8IQs4Iycqa0U5hlfU8RottoFXRq",
         method: "GET"
       }).then(function(response) {
         console.log(response);
-        //gets the venue's menu.. this is a premium API call, we only get 50 per day
-        //doesn't have drink menu, only food
       });
     </script>
   </body>
