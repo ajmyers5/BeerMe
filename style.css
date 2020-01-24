@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+.city{
+    display: inline-block;
+    align-content: center;
+    width: 300px;
+    margin: auto;
+    padding: 3vh;
+}
+#cityInput{
+    padding: 3vh;
+    margin: auto;
+}
+#findBtn{
+    margin: auto;
+
+}
+button{
+    padding: 3vh;
+}
+=======
 #gradient-background {
     position: absolute;
     display: block;
@@ -8,3 +28,4 @@
     bottom: 0;
     left: 0;
 }
+>>>>>>> 186ef0c13bf4e1bda70e015beeaaab0c5c4dc7ad
