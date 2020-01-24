@@ -8,6 +8,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     if ($("#cityInput").val() !== "") {
+      //only run event if search form isn't empty
       let city = $("#cityInput").val();
 
       const queryURL = `https://api.foursquare.com/v2/venues/explore?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323&limit=10&near=${city}&query=brewery`;
@@ -24,6 +25,7 @@ $(document).ready(function() {
         //explore endpoint gets a list of recommended breweries in the search area
 
         let venueArray = response.response.groups[0].items;
+        console.log(venueArray[0].venue);
         //prints info of each brewery
         venueArray.forEach(function(venue) {
           console.log(venue.venue);
