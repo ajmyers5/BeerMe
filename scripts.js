@@ -11,6 +11,14 @@ $(document).ready(function() {
       //only run event if search form isn't empty
       let city = $("#cityInput").val();
 
+      // $.ajax({
+      //   //PREMIUM API CALL for venue details
+      //   url: `https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323`,
+      //   method: "GET"
+      // }).then(function(response) {
+      //   console.log(response);
+      // });
+
       const queryURL = `https://api.foursquare.com/v2/venues/explore?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323&limit=10&near=${city}&query=brewery`;
       $.ajax({
         url: queryURL,
@@ -19,8 +27,8 @@ $(document).ready(function() {
         //these are coords for creating map
         let lat = response.response.geocode.center.lat;
         let long = response.response.geocode.center.lng;
-        console.log(lat);
-        console.log(long);
+        // console.log(lat);
+        // console.log(long);
 
         //explore endpoint gets a list of recommended breweries in the search area
 
@@ -32,7 +40,7 @@ $(document).ready(function() {
           featuresArray.push({
             type: "Feature",
             properties: {
-              description: `<h6><strong>${venue.venue.name}</strong></h6><p>This is a bar</p><p>${venue.venue.location.formattedAddress}</p>`,
+              description: `<h6><strong>${venue.venue.name}</strong></h6><p>${venue.venue.location.formattedAddress[0]}</p><p>${venue.venue.location.formattedAddress[1]}</p><p>Learn more (this should be a link which creates a new div showing more details)</p>`,
               icon: "beer"
             },
             geometry: {
