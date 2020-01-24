@@ -18,7 +18,9 @@ $(document).ready(function () {
         }).then(function (response) {
 
             //these are coords for creating map
-            console.log(response.response.geocode.center)
+            console.log("Lat: " + response.response.geocode.center.lat)
+            console.log("Long: " + response.response.geocode.center.lng)
+
             //explore endpoint gets a list of recommended breweries in the search area
 
             let venueArray = response.response.groups[0].items;
