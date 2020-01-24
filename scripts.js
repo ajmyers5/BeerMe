@@ -40,6 +40,69 @@ $(document).ready(function() {
           zoom: 12 // starting zoom
         });
         map.addControl(new mapboxgl.NavigationControl()); //add controls
+        map.on("load", function() {
+          // Add a layer showing the places.
+          map.addLayer({
+            id: "places",
+            type: "symbol",
+            source: {
+              type: "geojson",
+              data: {
+                type: "FeatureCollection",
+                features: [
+                  {
+                    type: "Feature",
+                    properties: {
+                      description: `<strong>${venueArray[0].venue.name}</strong><p>Make it Mount Pleasant is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>`,
+                      icon: "bar"
+                    },
+                    geometry: {
+                      type: "Point",
+                      coordinates: [-87.69204104605612, 41.857556170085864]
+                    }
+                  }
+                ]
+              }
+            },
+            layout: {
+              "icon-image": "{icon}-15",
+              "icon-allow-overlap": true
+            }
+          });
+        });
+
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: false
+        });
+
+        map.on("mouseenter", "places", function(e) {
+          // Change the cursor style as a UI indicator.
+          map.getCanvas().style.cursor = "pointer";
+
+          var coordinates = e.features[0].geometry.coordinates.slice();
+          var description = e.features[0].properties.description;
+
+          // Ensure that if the map is zoomed out such that multiple
+          // copies of the feature are visible, the popup appears
+          // over the copy being pointed to.
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup
+            .setLngLat(coordinates)
+            .setHTML(description)
+            .addTo(map);
+        });
+
+        map.on("mouseleave", "places", function() {
+          map.getCanvas().style.cursor = "";
+          popup.remove();
+        });
       });
     }
   }
