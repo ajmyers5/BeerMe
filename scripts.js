@@ -25,11 +25,23 @@ $(document).ready(function() {
         //explore endpoint gets a list of recommended breweries in the search area
 
         let venueArray = response.response.groups[0].items;
-        console.log(venueArray[0].venue);
-        //prints info of each brewery
+        let featuresArray = []; //array for map icons
+        //add info of each brewery to features array so we can use them to display the icons on the map
         venueArray.forEach(function(venue) {
           console.log(venue.venue);
+          featuresArray.push({
+            type: "Feature",
+            properties: {
+              description: `<strong>${venue.venue.name}</strong><p>This is a bar</p>`,
+              icon: "bar"
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [venue.venue.location.lng, venue.venue.location.lat]
+            }
+          });
         });
+        console.log(featuresArray);
         $("#map").empty(); // empty map div before we add a new one
         mapboxgl.accessToken =
           "pk.eyJ1Ijoia3A0MDUiLCJhIjoiY2s1cXl0emlzMDdvbDNtb250bXVveWFmcyJ9.JsFjY-BuUw2XW1CYWrZVVw";
@@ -37,7 +49,7 @@ $(document).ready(function() {
           container: "map",
           style: "mapbox://styles/mapbox/streets-v11",
           center: [long, lat], // starting position
-          zoom: 12 // starting zoom
+          zoom: 11 // starting zoom
         });
         map.addControl(new mapboxgl.NavigationControl()); //add controls
         map.on("load", function() {
@@ -49,19 +61,7 @@ $(document).ready(function() {
               type: "geojson",
               data: {
                 type: "FeatureCollection",
-                features: [
-                  {
-                    type: "Feature",
-                    properties: {
-                      description: `<strong>${venueArray[0].venue.name}</strong><p>Make it Mount Pleasant is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>`,
-                      icon: "bar"
-                    },
-                    geometry: {
-                      type: "Point",
-                      coordinates: [-87.69204104605612, 41.857556170085864]
-                    }
-                  }
-                ]
+                features: featuresArray
               }
             },
             layout: {
