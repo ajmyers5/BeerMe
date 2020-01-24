@@ -3,12 +3,14 @@
 
 var granimInstance = new Granim({
   element: '#canvas-basic',
-  direction: 'top-bottom',
-  isPausedWhenNotInView: true,
+  direction: 'left-right',
+  // isPausedWhenNotInView: true,
   states : {
       "default-state": {
           gradients: [
-              ['#FCE181', '#E0B416'],
+              ['#E7BF2D', '#FFD848'],
+              ['#FFF3C4', '#E7CA56'],
+              ['#FECC08', '#E5BB16']
           ]
       }
   }
@@ -16,7 +18,7 @@ var granimInstance = new Granim({
 
 let cityName = $(".city")
 
-let cityName = $(".cityInput")
+let cityInput = $(".cityInput")
 
 
 // Here we are building the URL we need to query the database
@@ -37,7 +39,8 @@ $.ajax({
     console.log(response);
 
     // Transfer content to HTML
-    $(".city").html(response.);
-    $(".address").text("Address: " + response._____);
+    $(".city").html(response.city);
+    $(".address").text("Address: " + response);
     $(".website").text("Website: " + response._________);
     $(".phoneNumber").text("Phone Number: " + response.________);
+  })
