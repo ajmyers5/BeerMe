@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="reset.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>foursquare</title>
+  </head>
+  <body>
+    <div class="col text-center">
+      <h1>Hello, world!</h1>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // const queryURL =
+      //   "https://api.foursquare.com/v2/venues/explore?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323&near=chicago,il&query=brewery";
+      // $.ajax({
+      //   url: queryURL,
+      //   method: "GET"
+      // }).then(function(response) {
+      //   // console.log(response);
+      //   //explore endpoint gets a list of recommended breweries in the search area
+      //   // console.log(response.response.groups[0].items);
+
+      //   let venueArray = response.response.groups[0].items;
+      //   //prints info of each brewery
+      //   venueArray.forEach(function(venue) {
+      //     console.log(venue.venue);
+      //   });
+      // });
+
+      // const queryURL =
+      //   "https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3/menu?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323";
+      // $.ajax({
+      //   url: queryURL,
+      //   method: "GET"
+      // }).then(function(response) {
+      //   console.log(response);
+      //   //gets the venue's menu.. this is a premium API call, we only get 50 per day
+      //   //doesn't have drink menu, only food
+      // });
+
+      $.ajax({
+        url:
+          "https://api.tomtom.com/map/1/tile/basic/main/22/500/500.pbf?view=Unified&key=lMpDx8IQs4Iycqa0U5hlfU8RottoFXRq",
+        method: "GET"
+      }).then(function(response) {
+        console.log(response);
+      });
+    </script>
+  </body>
+</html>
