@@ -32,8 +32,8 @@ $(document).ready(function() {
           featuresArray.push({
             type: "Feature",
             properties: {
-              description: `<strong>${venue.venue.name}</strong><p>This is a bar</p>`,
-              icon: "bar"
+              description: `<h6><strong>${venue.venue.name}</strong></h6><p>This is a bar</p><p>${venue.venue.location.formattedAddress}</p>`,
+              icon: "beer"
             },
             geometry: {
               type: "Point",
@@ -41,7 +41,7 @@ $(document).ready(function() {
             }
           });
         });
-        console.log(featuresArray);
+        // console.log(featuresArray);
         $("#map").empty(); // empty map div before we add a new one
         mapboxgl.accessToken =
           "pk.eyJ1Ijoia3A0MDUiLCJhIjoiY2s1cXl0emlzMDdvbDNtb250bXVveWFmcyJ9.JsFjY-BuUw2XW1CYWrZVVw";
@@ -66,7 +66,8 @@ $(document).ready(function() {
             },
             layout: {
               "icon-image": "{icon}-15",
-              "icon-allow-overlap": true
+              "icon-allow-overlap": true,
+              "icon-size": 1.5
             }
           });
         });
@@ -99,7 +100,11 @@ $(document).ready(function() {
             .addTo(map);
         });
 
-        map.on("mouseleave", "places", function() {
+        // map.on("mouseleave", "places", function() {
+        //   map.getCanvas().style.cursor = "";
+        //   popup.remove();
+        // });
+        map.on("click", "places", function() {
           map.getCanvas().style.cursor = "";
           popup.remove();
         });
