@@ -13,14 +13,12 @@
 #findBtn{
     margin: auto;
 
-#hero {
-    color: white
+
 }
 #box {
     margin: 20px;
 }
 
-}
 button{
     padding: 3vh;
 }
@@ -50,4 +48,8 @@ button{
     position: fixed;
     opacity: 50%;
   }
+
+.card {
+    border-radius: 10px;
+}
 
