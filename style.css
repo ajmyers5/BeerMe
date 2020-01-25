@@ -1,4 +1,4 @@
-.city{
+.city {
     display: inline-block;
     align-content: center;
     width: 300px;
@@ -6,22 +6,20 @@
     padding: 3vh;
 }
 
-#cityInput{
+#cityInput {
     padding: 3vh;
     margin: auto;
 }
-#findBtn{
+
+#findBtn {
     margin: auto;
 
-#hero {
-    color: white
-}
-#box {
-    margin: 20px;
-}
+
+
 
 }
-button{
+
+button {
     padding: 3vh;
 }
 
@@ -45,3 +43,9 @@ button{
 
 }
 
+#map {
+    border-radius: 10px;
+    border: 1rem;
+    border-style: solid;
+    border-color: white;
+}

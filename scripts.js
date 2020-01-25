@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //adding event listeners to form and button
 
   $("#findBtn").on("click", citySearch);
@@ -23,7 +23,7 @@ $(document).ready(function() {
       $.ajax({
         url: queryURL,
         method: "GET"
-      }).then(function(response) {
+      }).then(function (response) {
         //these are coords for creating map
         let lat = response.response.geocode.center.lat;
         let long = response.response.geocode.center.lng;
@@ -35,7 +35,7 @@ $(document).ready(function() {
         let venueArray = response.response.groups[0].items;
         let featuresArray = []; //array for map icons
         //add info of each brewery to features array so we can use them to display the icons on the map
-        venueArray.forEach(function(venue) {
+        venueArray.forEach(function (venue) {
           console.log(venue.venue);
           featuresArray.push({
             type: "Feature",
@@ -60,7 +60,7 @@ $(document).ready(function() {
           zoom: 11 // starting zoom
         });
         map.addControl(new mapboxgl.NavigationControl()); //add controls
-        map.on("load", function() {
+        map.on("load", function () {
           // Add a layer showing the places.
           map.addLayer({
             id: "places",
@@ -86,7 +86,7 @@ $(document).ready(function() {
           closeOnClick: false
         });
 
-        map.on("mouseenter", "places", function(e) {
+        map.on("mouseenter", "places", function (e) {
           // Change the cursor style as a UI indicator.
           map.getCanvas().style.cursor = "pointer";
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
         //   map.getCanvas().style.cursor = "";
         //   popup.remove();
         // });
-        map.on("click", "places", function() {
+        map.on("click", "places", function () {
           map.getCanvas().style.cursor = "";
           popup.remove();
         });
