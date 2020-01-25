@@ -6,17 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Project 1 - Beer Me</title>
     <link rel="stylesheet" href="reset.css" />
-    <!-- <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-  /> -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="style.css" />
 
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    /> -->
   </head>
   <body>
-
     <canvas id="canvas-basic"></canvas>
 
     <div id="particles-js"></div>
@@ -51,6 +64,7 @@
 
     <div class="block">
       <div class="map" id="streetMap"></div>
+      <div id="map" style="width: 800px; height: 700px;"></div>
     </div>
 
     <div class="block">
@@ -202,6 +216,7 @@
 
 
     
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="scripts.js"></script>
