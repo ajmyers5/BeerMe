@@ -1,51 +1,59 @@
 .city {
-    display: inline-block;
-    align-content: center;
-    width: 300px;
-    margin: auto;
-    padding: 3vh;
+  display: inline-block;
+  align-content: center;
+  width: 300px;
+  margin: auto;
+  padding: 3vh;
 }
 
 #cityInput {
-    padding: 3vh;
-    margin: auto;
+  padding: 3vh;
+  margin: auto;
 }
 
 #findBtn {
-    margin: auto;
-
-
-
-
+  margin: auto;
+}
+#box {
+  margin: 20px;
 }
 
 button {
-    padding: 3vh;
+  padding: 3vh;
 }
 
 #canvas-basic {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -9999;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999;
 }
 
 #content {
-    z-index: 10;
-    position: relative;
-    background-color: white;
-    color: black;
-    width: 200px;
-    height: 300px;
+  z-index: 10;
+  position: relative;
+  background-color: white;
+  color: black;
+  width: 200px;
+  height: 300px;
+}
+#particles-js {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: 50%;
+}
 
+.card {
+  border-radius: 10px;
 }
 
 #map {
-    border-radius: 10px;
-    border: 1rem;
-    border-style: solid;
-    border-color: white;
+  border-radius: 10px;
+  border: 1rem;
+  border-style: solid;
+  border-color: white;
 }
