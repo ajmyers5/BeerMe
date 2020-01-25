@@ -50,9 +50,6 @@ $(document).ready(function() {
               coordinates: [venue.venue.location.lng, venue.venue.location.lat]
             }
           });
-          $(".detailsLink").on("click", function() {
-            console.log("clicked");
-          });
         });
         // console.log(featuresArray);
         $("#map").empty(); // empty map div before we add a new one
@@ -117,11 +114,17 @@ $(document).ready(function() {
         //   map.getCanvas().style.cursor = "";
         //   popup.remove();
         // });
+
         map.on("click", "places", function() {
           map.getCanvas().style.cursor = "";
           popup.remove();
         });
       });
     }
+    $(document).on("click", function(e) {
+      if (e.target.className === "detailsLink") {
+        $("#cardDiv").show();
+      }
+    });
   }
 });
