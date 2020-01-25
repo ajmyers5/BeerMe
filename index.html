@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Project 1 - Beer Me</title>
     <link rel="stylesheet" href="reset.css" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    
     <link rel="stylesheet" href="style.css" />
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
@@ -53,7 +51,9 @@
       <div class="city">
         <div class="field">
           <div class="control">
-            <input class="input is-medium is-rounded" type="text" placeholder="Enter A City">
+            <form id="searchForm">
+            <input id="cityInput" class="input is-medium is-rounded" type="text" placeholder="Enter A City">
+            </form>
           </div>
         </div>
         <button class="button is-light is-center" id="findBtn">
