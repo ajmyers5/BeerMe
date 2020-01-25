@@ -19,7 +19,9 @@ $(document).ready(function() {
       //fill in card details
       // console.log(response);
       $("#breweryName").text(response.response.venue.name);
-      $("#breweryPrice").text(response.response.venue.price.currency);
+      $("#breweryPrice").text(
+        `Price rating: ${response.response.venue.price.currency}`
+      );
       $("#breweryAddress").empty();
       $("#breweryAddress").append(
         `<p>${response.response.venue.location.formattedAddress[0]}</p><p>${response.response.venue.location.formattedAddress[1]}</p><p>${response.response.venue.contact.formattedPhone}</p>`
