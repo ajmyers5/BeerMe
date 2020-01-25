@@ -15,7 +15,7 @@ $(document).ready(function () {
       //   //PREMIUM API CALL for venue details
       //   url: `https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323`,
       //   method: "GET"
-      // }).then(function(response) {
+      // }).then(function (response) {
       //   console.log(response);
       // });
 
