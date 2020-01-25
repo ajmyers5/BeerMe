@@ -7,16 +7,20 @@
 }
 
 #cityInput{
-    padding: 3vh;
-    margin: auto;
+    color: #333;
+    font-size: 1.5rem;
+	margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    display: block;
 }
 #findBtn{
     margin: auto;
 
 
-}
-#box {
-    margin: 20px;
 }
 
 button{
@@ -50,6 +54,24 @@ button{
   }
 
 .card {
-    border-radius: 10px;
+    border-radius: 15px;
 }
+a {
+    color: rgb(240, 171, 44);
+  }
+  a:hover {
+    color: rgb(240, 171, 44);
+  }
+
+  #header {
+    font-family: 'Lato', sans-serif;
+    font-size: 80px;
+    color: white;
+    font-weight: bolder;
+    -webkit-text-stroke: 3px white;
+  }
+
+  .subtitle {
+      color: white;
+  }
 
