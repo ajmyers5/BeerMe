@@ -1,226 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Project 1 - Beer Me</title>
-    <link rel="stylesheet" href="reset.css" />
-    
-    <link rel="stylesheet" href="style.css" />
 
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-    />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
-    <!-- <link
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Project 1 - Beer Me</title>
+  <link rel="stylesheet" href="reset.css" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     /> -->
-  </head>
-  <body>
-    <canvas id="canvas-basic"></canvas>
+</head>
 
-    <div id="particles-js"></div>
+<body>
+  <canvas id="canvas-basic"></canvas>
 
-    <section class="hero auto">
-      <div class="hero-body" class="block">
-        <div class="container  has-text-centered" class="block">
-          <h1 class="title has-text-white-bis is-1">
-            Beer Me
-          </h1>
-          <h2 class="subtitle has-text-white-ter is-2">
-            Thirsty? We can help.
-          </h2>
+  <div id="particles-js"></div>
+
+  <section class="hero auto">
+    <div class="hero-body" class="block">
+      <div class="container  has-text-centered" class="block">
+        <h1 class="title has-text-white-bis is-1">
+          Beer Me
+        </h1>
+        <h2 class="subtitle has-text-white-ter is-2">
+          Thirsty? We can help.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- </section> -->
+
+  <div class="container has-text-centered">
+    <div class="city">
+      <div class="field">
+        <div class="control">
+          <form id="searchForm">
+            <input id="cityInput" class="input is-medium is-rounded" type="text" placeholder="Enter A City">
+          </form>
         </div>
       </div>
-    </section>
+      <button class="button is-light is-center" id="findBtn">
+        &nbsp <i class="fas fa-beer"></i> &nbsp Find Breweries
+      </button>
+    </div>
+  </div>
 
-    <!-- </section> -->
+  <div class="column is-10 is-offset-1">
+    <div class="map" id="streetMap"></div>
+    <div id="map" style="width: 100%; height: 450px;"></div>
+  </div>
 
-    <div class="container has-text-centered">
-      <div class="city">
-        <div class="field">
-          <div class="control">
-            <form id="searchForm">
-            <input id="cityInput" class="input is-medium is-rounded" type="text" placeholder="Enter A City">
-            </form>
+  <div class="block">
+    <div class="brewery" id="brewList"></div>
+
+  </div>
+
+  <div class="column is-6 is-offset-3">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-3by2">
+          <img src="https://fastly.4sqi.net/img/general/612x612/A8LQimmmRYaI6BdsNrEehLrAz_ausI3aL76K3rQ-lsA.jpg" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="breweryName">
+            <p id="breweryName" class="title is-2">Brewery Name</p>
           </div>
         </div>
-        <button class="button is-light is-center" id="findBtn">
-          &nbsp <i class="fas fa-beer"></i> &nbsp Find Breweries
-        </button>
+        <div id="breweryPrice" class="title is-5">Price
+        </div>
+        <div id="breweryDes" class="title is-6">Revolution Brewing is Chicago's new hometown craft brewery. Our brewpub in Logan Square is a bustling, neighborhood institution where friends and families meet to enjoy the freshest beer in town.
+        </div>
+
+        <div id="breweryAddress" class="title is-5">281 Bleecker St (at Jones St)<br>New York, NY 10014
+        </div>
+
+        <div id="breweryWebsite" class="title is-5"><a href="www.google.com">Google.com</a>
+        </div>
+
       </div>
     </div>
 
-    <div class="block">
-      <div class="map" id="streetMap"></div>
-      <div id="map" style="width: 800px; height: 700px;"></div>
-    </div>
-
-    <div class="block">
-      <div class="brewery" id="brewList"></div>
-      
-    </div>
+  </div>
 
 
 
-    <div class="columns">
-      <div class="column">
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                </p>
-              </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  <a class="level-item" aria-label="reply">
-                    <span class="icon is-small">
-                      <i class="fas fa-reply" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="retweet">
-                    <span class="icon is-small">
-                      <i class="fas fa-retweet" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                  <a class="level-item" aria-label="like">
-                    <span class="icon is-small">
-                      <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
 
 
 
-    
 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="granim.js"></script>
+  <script src="javascriptP1.js"></script>
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="scripts.js"></script>
-    <script src="granim.js"></script>
-    <script src="javascriptP1.js"></script>
-  </body>
 </html>
