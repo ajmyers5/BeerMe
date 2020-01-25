@@ -1,23 +1,54 @@
 $(document).ready(function() {
   //adding event listeners to form and button
+  $(document).on("click", function(e) {
+    if (e.target.className === "detailsLink") {
+      showDetailCard(e.target.id);
+    }
+  });
 
   $("#findBtn").on("click", citySearch);
   $("#searchForm").on("submit", citySearch);
+
+  function showDetailCard(id) {
+    // console.log(id);
+    $.ajax({
+      //PREMIUM API CALL for venue details
+      url: `https://api.foursquare.com/v2/venues/${id}?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323`,
+      method: "GET"
+    }).then(function(response) {
+      //fill in card details
+      // console.log(response);
+      $("#breweryName").text(response.response.venue.name);
+      $("#breweryPrice").text(response.response.venue.price.currency);
+      $("#breweryAddress").empty();
+      $("#breweryAddress").append(
+        `<p>${response.response.venue.location.formattedAddress[0]}</p><p>${response.response.venue.location.formattedAddress[1]}</p><p>${response.response.venue.contact.formattedPhone}</p>`
+      );
+      $("#breweryWebsite").empty();
+      $("#breweryWebsite").append(
+        `<a href="${response.response.venue.url}">${response.response.venue.url}</a>`
+      );
+      if (response.response.venue.description !== undefined) {
+        $("#breweryDes").text(response.response.venue.description);
+      } else {
+        $("#breweryDes").empty();
+      }
+      $("#cardImg").attr(
+        "src",
+        `${response.response.venue.bestPhoto.prefix}${response.response.venue.bestPhoto.width}x${response.response.venue.bestPhoto.height}${response.response.venue.bestPhoto.suffix}`
+      );
+      $("#cardDiv").show();
+    });
+  }
 
   function citySearch(e) {
     e.preventDefault();
 
     if ($("#cityInput").val() !== "") {
       //only run event if search form isn't empty
-      let city = $("#cityInput").val();
+      $("#cardDiv").hide();
 
-      // $.ajax({
-      //   //PREMIUM API CALL for venue details
-      //   url: `https://api.foursquare.com/v2/venues/4b0b3062f964a520582e23e3?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323`,
-      //   method: "GET"
-      // }).then(function (response) {
-      //   console.log(response);
-      // });
+      let city = $("#cityInput").val();
 
       const queryURL = `https://api.foursquare.com/v2/venues/explore?client_id=VBSRR4N0G21AGXXAQBIVHVETVMY5EMFV20R2AFBIENJKXHR2&client_secret=CI51EWKVLWPWG4YXIT1LR5OOKWDJDM3OLQVJBZRPC0QPCD0V&v=20180323&limit=10&near=${city}&query=brewery`;
       $.ajax({
@@ -38,11 +69,11 @@ $(document).ready(function() {
         let featuresArray = []; //array for map icons
         //add info of each brewery to features array so we can use them to display the icons on the map
         venueArray.forEach(function(venue) {
-          console.log(venue.venue);
+          // console.log(venue.venue);
           featuresArray.push({
             type: "Feature",
             properties: {
-              description: `<h6><strong>${venue.venue.name}</strong></h6><p>${venue.venue.location.formattedAddress[0]}</p><p>${venue.venue.location.formattedAddress[1]}</p><p class="detailsLink">Learn more</p>`,
+              description: `<h6><strong>${venue.venue.name}</strong></h6><p>${venue.venue.location.formattedAddress[0]}</p><p>${venue.venue.location.formattedAddress[1]}</p><p id="${venue.venue.id}"class="detailsLink">Learn more</p>`,
               icon: "beer"
             },
             geometry: {
@@ -121,10 +152,5 @@ $(document).ready(function() {
         });
       });
     }
-    $(document).on("click", function(e) {
-      if (e.target.className === "detailsLink") {
-        $("#cardDiv").show();
-      }
-    });
   }
 });
