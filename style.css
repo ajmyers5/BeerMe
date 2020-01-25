@@ -42,6 +42,12 @@ button{
     height: 300px;
 
 }
+#particles-js {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    opacity: 50%;
+  }
 
 .card {
     border-radius: 10px;
