@@ -1,16 +1,24 @@
-/* .city{
+.city{
     display: inline-block;
     align-content: center;
     width: 300px;
     margin: auto;
     padding: 3vh;
-} */
-/* #cityInput{
+}
+
+#cityInput{
     padding: 3vh;
     margin: auto;
-} */
+}
 #findBtn{
     margin: auto;
+
+#hero {
+    color: white
+}
+#box {
+    margin: 20px;
+}
 
 }
 button{
@@ -18,13 +26,22 @@ button{
 }
 
 #canvas-basic {
-    position: absolute;
-    display: block;
     width: 100%;
     height: 100%;
+    display: block;
+    position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
+    z-index: -9999;
+}
+
+#content {
+    z-index: 10;
+    position: relative;
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 300px;
+
 }
 
