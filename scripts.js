@@ -118,7 +118,7 @@ $(document).ready(function() {
         // Create a popup, but don't add it to the map yet.
         var popup = new mapboxgl.Popup({
           closeButton: false,
-          closeOnClick: false
+          closeOnClick: true
         });
 
         map.on("mouseenter", "places", function(e) {
