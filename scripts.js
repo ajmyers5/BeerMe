@@ -75,7 +75,7 @@ $(document).ready(function() {
           featuresArray.push({
             type: "Feature",
             properties: {
-              description: `<h6><strong>${venue.venue.name}</strong></h6><p>${venue.venue.location.formattedAddress[0]}</p><p>${venue.venue.location.formattedAddress[1]}</p><p id="${venue.venue.id}"class="detailsLink">Learn more</p>`,
+              description: `<h6><strong>${venue.venue.name}</strong></h6><p>${venue.venue.location.formattedAddress[0]}</p><p>${venue.venue.location.formattedAddress[1]}</p><p><a href="#cardDiv" id="${venue.venue.id}" class="detailsLink">Learn more</a></p>`,
               icon: "beer"
             },
             geometry: {
