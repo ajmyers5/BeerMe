@@ -6,16 +6,16 @@
   padding: 3vh;
 }
 
-#cityInput{
-    color: #333;
-    font-size: 1.5rem;
-	margin: 0;
-    padding: 0;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    width: 100%;
-    display: block;
+#cityInput {
+  color: #333;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 100%;
+  display: block;
 }
 
 #findBtn {
@@ -55,27 +55,35 @@ button {
   border-radius: 10px;
 }
 a {
-    color: rgb(240, 171, 44);
-  }
-  a:hover {
-    color: rgb(240, 171, 44);
-  }
+  color: rgb(240, 171, 44);
+}
+a:hover {
+  color: rgb(240, 171, 44);
+}
 
-  #header {
-    font-family: 'Lato', sans-serif;
-    font-size: 80px;
-    color: white;
-    font-weight: bolder;
-    -webkit-text-stroke: 3px white;
-  }
+#header {
+  font-family: "Lato", sans-serif;
+  font-size: 80px;
+  color: white;
+  font-weight: bolder;
+  -webkit-text-stroke: 3px white;
+}
 
-  .subtitle {
-      color: white;
-  }
+.subtitle {
+  color: white;
+}
 
 #map {
   border-radius: 10px;
   border: 0.75rem;
   border-style: solid;
   border-color: white;
+  width: 50%;
+  margin: 0px auto;
+}
+
+@media only screen and (max-width: 600px) {
+  #map {
+    width: 100%;
+  }
 }
