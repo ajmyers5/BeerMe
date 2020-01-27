@@ -20,6 +20,9 @@ $(document).ready(function() {
           $(parentEl).append(`<p>${response.response.venue.description}</p>`);
         }
         $(parentEl).append(
+          `<p>${response.response.venue.contact.formattedPhone}</p>`
+        );
+        $(parentEl).append(
           `<a href="${response.response.venue.url}">${response.response.venue.url}</a>`
         );
         $(e.target.parentElement).remove(); // delete 'More details' link
