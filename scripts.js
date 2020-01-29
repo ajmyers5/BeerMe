@@ -19,9 +19,11 @@ $(document).ready(function() {
         if (response.response.venue.description !== undefined) {
           $(parentEl).append(`<p>${response.response.venue.description}</p>`);
         }
-        $(parentEl).append(
-          `<p>${response.response.venue.contact.formattedPhone}</p>`
-        );
+        if (response.response.venue.contact.formattedPhone !== undefined) {
+          $(parentEl).append(
+            `<p>${response.response.venue.contact.formattedPhone}</p>`
+          );
+        }
         $(parentEl).append(
           `<a href="${response.response.venue.url}">${response.response.venue.url}</a>`
         );
@@ -82,9 +84,12 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
         $("#map").show();
-        $('html, body').animate({
-          scrollTop: ($('#map').offset().top)
-      },500);
+        $("html, body").animate(
+          {
+            scrollTop: $("#map").offset().top
+          },
+          500
+        );
 
         //these are coords for creating map
         let lat = response.response.geocode.center.lat;
@@ -206,17 +211,17 @@ $(document).ready(function() {
 });
 
 var granimInstance = new Granim({
-  element: '#canvas-basic',
-  direction: 'left-right',
+  element: "#canvas-basic",
+  direction: "left-right",
   // isPausedWhenNotInView: true,
   states: {
-      "default-state": {
-          gradients: [
-              ['#E7BF2D', '#FFD848'],
-              ['#FFF3C4', '#E7CA56'],
-              ['#FECC08', '#E5BB16'],
-              ['#CC9200', '#EBC159'],
-          ]
-      }
+    "default-state": {
+      gradients: [
+        ["#E7BF2D", "#FFD848"],
+        ["#FFF3C4", "#E7CA56"],
+        ["#FECC08", "#E5BB16"],
+        ["#CC9200", "#EBC159"]
+      ]
+    }
   }
 });
