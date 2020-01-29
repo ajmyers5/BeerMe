@@ -40,6 +40,9 @@ $(document).ready(function() {
         `${response.response.venue.bestPhoto.prefix}${response.response.venue.bestPhoto.width}x${response.response.venue.bestPhoto.height}${response.response.venue.bestPhoto.suffix}`
       );
       $("#cardDiv").show();
+      $('html, body').animate({
+        scrollTop: ($('#cardDiv').offset().top)
+    },500);
     });
   }
 
@@ -58,6 +61,9 @@ $(document).ready(function() {
         method: "GET"
       }).then(function(response) {
         $("#map").show();
+        $('html, body').animate({
+          scrollTop: ($('#map').offset().top)
+      },500);
 
         //these are coords for creating map
         let lat = response.response.geocode.center.lat;
@@ -154,5 +160,21 @@ $(document).ready(function() {
         });
       });
     }
+  }
+});
+
+var granimInstance = new Granim({
+  element: '#canvas-basic',
+  direction: 'left-right',
+  // isPausedWhenNotInView: true,
+  states: {
+      "default-state": {
+          gradients: [
+              ['#E7BF2D', '#FFD848'],
+              ['#FFF3C4', '#E7CA56'],
+              ['#FECC08', '#E5BB16'],
+              ['#CC9200', '#EBC159'],
+          ]
+      }
   }
 });
