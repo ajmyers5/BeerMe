@@ -5,7 +5,7 @@ Project 1 : Matt, John, Kellen, Andrew
 AS A beer connoisseur, I WANT a list of close breweries, SO THAT I can chose which one I'm most interested in from a list of options
 
 ## Beer Me
-Beer Me is an app designed to help those thirsty beer connoisseurs locate a local beer establishment.  This app searches for local breweries and brewpubs, shows their location on a map, and allows the user to click on a desired brewery/brewpub for more details.
+Beer Me is an app designed to help those thirsty beer connoisseurs locate a local beer establishment.  This app searches for top recommended local breweries, shows their location on a map, and allows the user to click on a desired brewery for more details.
 
 ## Motivation
 At Beer Me, we wanted to build out a beer-specific app to cut through the noise and get to the heart of delicious beers available within a close proximity.
