@@ -1,7 +1,7 @@
 .city {
   display: inline-block;
   align-content: center;
-  width: 300px;
+  width: 50%;
   margin: auto;
   padding: 3vh;
 }
@@ -16,6 +16,10 @@
   border: none;
   width: 100%;
   display: block;
+}
+
+#searchForm {
+
 }
 
 #findBtn {
@@ -93,5 +97,8 @@ a:hover {
 @media only screen and (max-width: 600px) {
   #map {
     width: 100%;
+  }
+  .city {
+    width: 90%;
   }
 }
