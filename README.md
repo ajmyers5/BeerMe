@@ -20,6 +20,5 @@ Beer Me simplifies users search for local breweries.
 Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
 ## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 Enter desired city name.  A map will populate close breweries where you will be able to select a brewery and view it's details (address, style, phone number, hours, etc)
 
