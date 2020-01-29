@@ -46,3 +46,8 @@ Beer Me simplifies users search for local breweries.
 ## How to use?
 Enter desired city name.  A map will populate close breweries where you will be able to select a brewery and view it's details (address, style, phone number, hours, etc)
 
+## Links
+https://ajmyers5.github.io/Group-666/
+https://github.com/ajmyers5/Group-666
+
+
