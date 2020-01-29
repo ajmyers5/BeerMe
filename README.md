@@ -1,63 +1,25 @@
-# Group-666
+# Group-666 - Project 1 "Beer Me"
 Project 1 : Matt, John, Kellen, Andrew
 
-USERSTORY:
-As a beer connoisseur, I want a list of close breweries, so that I can chose which one I'm most interested in from a list of options
+## USERSTORY:
+AS A beer connoisseur, I WANT a list of close breweries, SO THAT I can chose which one I'm most interested in from a list of options
 
-PSEUDOCODE:
+## Beer Me
+Beer Me is an app designed to help those thirsty beer connoisseurs locate a local beer establishment.  This app searches for local breweries and brewpubs, shows their location on a map, and allows the user to click on a desired brewery/brewpub for more details.
 
-Kellen:
-some pseudocode:
--find breweries near location
--get list of beers they are selling from menu
--show info about each beer to user
--if user clicks on a beer, highlight which brewery is selling it on map
+## Motivation
+At Beer Me, we wanted to build out a beer-specific app to cut through the noise and get to the heart of delicious beers available within a close proximity.
 
-NAME??
+## Screenshots
+![BeerMe](https://user-images.githubusercontent.com/56936352/73216540-c9930780-411b-11ea-8f59-0eccb069f68f.png)
 
-HTML:
- - build out html framework based on UI sketch
- - LANDING PAGE: 1 row and 1columns with INPUT (city name) ending with a BTN to navigate to next 
- - after .onclick
-    - map
-    - list of brewerires, types, tags
- - after 2nd .onclick
-    - specific brewery and details
-        address
-        website
-        phone number
+## Features
+Beer Me simplifies users search for local breweries.
 
-JAVASCRIPT:
-- 1st .onclick grab city name and brings up map
-- 2nd .onclick 
-    - map
-        - api call to google api based on _________ (city name??)
-    - brewery name
-        - on bottom half of screen broken into 3 columns
-            - all breweries, type, tag
-        - api call to openBrewery DB
-        - onclick: pull brewery details: address, website, phone
-    - map:
-        - spans across top half of screen
-        - 
-CSS:
-- bulma.io
-- mobile first
-- LANDING PAGE -> and underneath map
-    - bubbling 
-    - gradient
+## Code Example
+Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
+## How to use?
+If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+Enter desired city name.  A map will populate close breweries where you will be able to select a brewery and view it's details (address, style, phone number, hours, etc)
 
-API's:
-OPENBREWERYDB
-    by_city
-    Filter breweries by city.
-
-    Note: For the parameters, you can use underscores or url encoding for spaces.
-
-    Examples
-    https://api.openbrewerydb.org/breweries?by_city=san_diego 
-    https://api.openbrewerydb.org/breweries?by_city=san%20diego
-
-
-    TaskList:
