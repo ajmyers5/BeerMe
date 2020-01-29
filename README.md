@@ -13,6 +13,8 @@ At Beer Me, we wanted to build out a beer-specific app to cut through the noise 
 ## Screenshots
 ![BeerMe](https://user-images.githubusercontent.com/56936352/73216540-c9930780-411b-11ea-8f59-0eccb069f68f.png)
 
+![MapScreenShot](https://user-images.githubusercontent.com/56936352/73318709-da1cae00-41ff-11ea-91f8-50b4756dcc57.png)
+
 ## Features
 Beer Me simplifies users search for local breweries.
 
