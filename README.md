@@ -1,4 +1,4 @@
-# Group-666 - Project 1 "Beer Me"
+# "Beer Me"
 Project 1 : Matt, John, Kellen, Andrew
 
 ## USERSTORY:
